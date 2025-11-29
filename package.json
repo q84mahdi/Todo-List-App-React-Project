@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "json-server server/db.json --watch -p 5000"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.6",
