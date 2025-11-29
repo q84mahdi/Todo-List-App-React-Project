@@ -2,15 +2,18 @@ import { useDispatch, useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
 import { useEffect } from "react";
 import { getAsyncTodos } from "../Features/Todo/todoSlice";
+import type { AppDispatch, RootState } from "../Features/store";
 
-const TodoList = () => {
-  const { loading, todos, error } = useSelector((state) => state.todos);
+const TodoList: React.FC = () => {
+  const { loading, todos, error } = useSelector(
+    (state: RootState) => state.todos
+  );
 
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAsyncTodos());
-  }, []);
+  }, [dispatch]);
 
   if (loading) return <p>Data Loading ...</p>;
 

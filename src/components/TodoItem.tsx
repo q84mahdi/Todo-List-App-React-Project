@@ -1,8 +1,15 @@
 import { useDispatch } from "react-redux";
 import { deleteAsyncTodo, toggleAsyncTodo } from "../Features/Todo/todoSlice";
+import type { AppDispatch } from "../Features/store";
 
-const TodoItem = ({ id, title, completed }) => {
-  const dispatch = useDispatch();
+interface TodoItemProps {
+  id: number;
+  title: string;
+  completed: boolean;
+}
+
+const TodoItem: React.FC<TodoItemProps> = ({ id, title, completed }) => {
+  const dispatch: AppDispatch = useDispatch();
 
   return (
     <li className={`list-group-item ${completed && "list-group-item-success"}`}>
@@ -16,8 +23,10 @@ const TodoItem = ({ id, title, completed }) => {
             className="mr-3"
             checked={completed}
           ></input>
+
           <span>{title}</span>
         </span>
+
         <button
           onClick={() => dispatch(deleteAsyncTodo({ id }))}
           className="btn btn-danger"

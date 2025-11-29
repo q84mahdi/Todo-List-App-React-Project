@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addAsyncTodo } from "../Features/Todo/todoSlice";
 import type { AppDispatch, RootState } from "../Features/store";
 
-const AddTodoForm = () => {
+const AddTodoForm: React.FC = () => {
   const [value, setValue] = useState("");
 
   const { loading } = useSelector((state: RootState) => state.todos);
